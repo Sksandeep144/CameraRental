@@ -1,6 +1,6 @@
 
 public class Wallet {
-		static float bal = 25000;
+		static float bal = 25000; //inital balance
 
 		public static  float getBal() {
 			return bal;
