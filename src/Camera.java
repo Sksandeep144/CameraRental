@@ -15,25 +15,24 @@ public class Camera {
 			status = "Available";
 		}
 		
+		
+		
 		//Delete Cameras
-		static void remove(ArrayList<Camera> cam, int key) {
-			int found = 0;
+		static boolean remove(ArrayList<Camera> cam, int key) {
 				for(int i=0;i<cam.size();i++) {
 					if(cam.get(i).id == key) {
 						if(cam.get(i).status.equals("Available")) {
-							found = 1;
 						cam.remove(cam.get(i));
-						System.out.println("CAMERA SUCCESFULLY REMOVED FROM LIST.");
-						break;
+						return true;
 						}else {
 							System.out.println("CAMERA IS ALREADY RENTED");
-							found = 1;
-							break;
+							return false;
 							}
 					}
-				}if(found==0) {
-						System.out.println("NO CAMERA WITH ID = "+key);
 				}
+				System.out.println("NO CAMERA WITH ID = "+key);
+				return false;
+				
 		
 			}
 		
@@ -48,6 +47,21 @@ public class Camera {
 				System.out.println("=======================================================================");
 				
 			}
+			
+			//Display Available cameras
+			static void displayAvailable(ArrayList<Camera> cam) {
+				System.out.println("=======================================================================");
+				System.out.println("   CAMERA_ID\tBRAND\tMODEL\tPRICE(PER DAY)\tSTATUS");
+				System.out.println("=======================================================================");
+					for(Camera c:cam) {
+						if(c.status.equals("Available")) {
+								System.out.println("  \t"+c.id+"\t"+c.brand+"\t"+c.model+"\t"+c.price+"\t      "+c.status);
+						}
+				}
+				System.out.println("=======================================================================");
+				
+			}
+			
 			
 		//Add Cameras
 		static void add(ArrayList<Camera> cam,int id) {
