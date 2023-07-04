@@ -76,6 +76,7 @@ public class Camera {
 				System.out.println("ENTER THE PER DAY PRICE (INR) - ");
 				price=sc.nextFloat();
 				cam.add(new Camera(id,brand,model,price));
+				System.out.println("YOUR CAMERA HAS BEEN SUCCESSFULLY ADDED TO THE LIST");
 				}catch(InputMismatchException e ) {
 					System.out.println(" INPUT CORRECT VALUES");
 				}
